@@ -14,63 +14,126 @@
           <i class="fa fa-square-o fa-stack-2x"></i>
           <i class="fa fa-twitter fa-stack-1x"></i>
         </span>
-        <span>Twittler</span>
+        <span><a class="navLink" onclick="showHomeView()">Twittler</a></span>
+          <span class='headerNav'><i class="fa fa-home"></i> <a id="homeButton" class="navLink">Home/Refresh</a>&nbsp;&nbsp;
       </h1>
     </hgroup>
   </header>
   <section class="contentBodyWrapper group">
     <section class="userColumn group">
-      <article class="profileMini">
-        <header>
-          <img id="profileMini_imgId" src=http://placehold.it/68x68/dd00dd class="profileMini_img"><br>
-          <h3>Paul Brady</h3><br>
-          <span class="lightColor">@curiousitude</span></h3><br>
+
+      <article class="profileMini bigRoundedBorders">
+        <header style="background: url(images/profileMiniBg_pbrady.png) top no-repeat;">
+          <img id="profileMini_imgId" src=images/profileMini_pbrady.png class="profileMini_img"><!-- alt http://placehold.it/68x68/dd00dd -->
+          <span class="profileTextBlk group">
+            <h3>Paul Brady</h3>
+            <div class="textSm">@curiousitude</div>
+          </span>
         </header>
       </article>
-      <article class="trends">
+
+      <article class="trends bigRoundedBorders group">
         <h3>Trends</h3>
-        <a href="#">future portfolio item #1</a><br>
-        <a href="#">future portfolio item #2</a><br>
-        <a href="#">future portfolio item #3</a><br>
-        <a href="#">future portfolio item #4</a><br>
-        <a href="#">future portfolio item #5</a><br>
-        <a href="#">future portfolio item #6</a><br>
+        <nav>
+          <ul>
+            <li><a href="#" title="Sorry, not implemmented yet.">A Trending Item of Interest #1</a></li>
+            <li><a href="#" title="Sorry, not implemmented yet.">A Trending Item of Interest #2</a></li>
+            <li><a href="#" title="Sorry, not implemmented yet.">A Trending Item of Interest #3</a></li>
+            <li><a href="#" title="Sorry, not implemmented yet.">A Trending Item of Interest #4</a></li>
+            <li><a href="#" title="Sorry, not implemmented yet.">A Trending Item of Interest #5</a></li>
+            <li><a href="#" title="Sorry, not implemmented yet.">A Trending Item of Interest #6</a></li>
+          </ul>
+        </nav>
       </article>
     </section>
 
-    <section class="tweetColumn group">
-      <p>!!!tweetColumn</p>
-      <div>This is a tweet.  TWEET!!!</div>
+    <section class="tweetColumn bigRoundedBorders group">
+      <!--div class="tweetPost group">
+        <img src=http://placehold.it/40x40/dd00dd class="profileTweet_img">
+      </div><br -->
+
       <div>
-        <i class="fa fa-quote-left fa-3x pull-left fa-border"></i>
-        ...tomorrow we will run faster, stretch out our arms farther...
-        And then one fine morning... So we beat on, boats against the
-        current, borne back ceaselessly into the past.  ...tomorrow we will run faster, stretch out our arms farther...
-        And then one fine morning... So we beat on, boats against the
-        current, borne back ceaselessly into the past.<br>
-        <i class="fa fa-spinner fa-spin"></i>
         <div class="tweetContentWrapper">
           <div id="tweetContent"></div>
         </div>
       </div>
+
     </section>
   </section>
 
 
       <script>
 
-        $(document).ready(function(){
-          // var $body = $('body');
-          // $body.html('');
+        var getTweetBlock = function( userName, tweetText, tweetTime) {
+          var tweetHTMLBlock = '<img src=http://placehold.it/40x40/FFB5A5 class=profileTweet_img>' +
+                                 '<span class="tweetTextBlk tweetTxt group">' + 
+                                   '<span class="tweetUser"><a onclick="showUserFilteredTweets(\'' + userName + '\');">@' + userName + '</a></span>&nbsp;&#183&nbsp;<span class="lightTxt tweetDate">' + tweetTime + '</span><br>' + 
+                                   tweetText + '<br><br></span>';
 
-          // var index = streams.home.length - 1;
-          // while(index >= 0){
-          //   var tweet = streams.home[index];
-          //   var $tweet = $('<div></div>');
-          //   $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          //   $tweet.appendTo($body);
-          //   index -= 1;
-          // }
+          return tweetHTMLBlock;
+        }
+
+        var enableHashtagLinks = function(raw) {
+          var retVal = "";
+          if (raw.indexOf("#")==-1) {
+            retVal=raw;
+          } else {
+            retVal = raw.replace(/(^|\W)(#[a-z\d][\w-]*)/ig, '$1<a href=index.html?q=no-hash-searches-yet>#$2</a>').replace("#", "");
+          }
+          return retVal;
+        };
+
+        var getFormattedDate = function( d ) {
+          return d.toLocaleTimeString() + " - " + d.toLocaleDateString();
+        };
+
+        var getUserColorHash = function( aUser ) {
+          return "#AA0033";
+        };
+
+        var showUserFilteredTweets = function( aUser ) {
+          var $tweetContent = $('#tweetContent');
+          $tweetContent.html('');
+
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            if (tweet.user == aUser) {
+              var $tweet = $('<div class=tweet></div>');
+              $tweet.html( getTweetBlock(tweet.user, enableHashtagLinks(tweet.message), getFormattedDate(tweet.created_at) ) );
+              $tweet.appendTo($tweetContent);
+            }
+            index -= 1;
+          }
+        };
+
+        var showCurrentTweets = function() {
+          var $tweetContent = $('#tweetContent');
+          $tweetContent.html('');
+
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div class=tweet></div>');
+            $tweet.html( getTweetBlock(tweet.user, enableHashtagLinks(tweet.message), getFormattedDate(tweet.created_at) ) );
+            $tweet.appendTo($tweetContent);
+            index -= 1;
+          }
+        };
+
+        $(document).ready(function(){
+
+          $("#homeButton").on("click", function() {
+            console.log("CLICK!");
+            showCurrentTweets();
+          });
+
+          $("#refreshButton").on("click", function() {
+            console.log("CLICK!");
+            showCurrentTweets();
+          });
+
+          showCurrentTweets();
 
         });
 
