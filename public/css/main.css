@@ -1,0 +1,225 @@
+/*color guide:
+111 Black Bg
+88c9f9 Light Blue
+
+FFD3A6 Gentle Orange 
+FFDF41 Gentle Yellow
+41A0FF Medium Blue
+
+FF6041 Bright Orange
+FFECDA Off White
+FFF0A5 Gentle Yellow
+A0A0A0 Medium Gray
+
+FFD3A6 Light Peach 
+FFB5A5 MedLight Peach
+
+*/
+/*limited reset*/
+html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, figure, canvas, video, th, td, tr {
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+a {
+  text-decoration: underline;
+  color: #3ea1ed; }
+
+a:hover {
+  color: #000080; }
+
+/*html5 display rule*/
+address, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section, summary {
+  display: block; }
+
+h1 {
+  font-size: 2.0em;
+  font-weight: lighter;
+  color: #F00; }
+
+h3 {
+  font-size: 1.5em;
+  font-weight: lighter; }
+
+/* clearfix floats */
+.group:before,
+.group:after {
+  content: "";
+  display: table; }
+
+.group:after {
+  clear: both; }
+
+.group {
+  zoom: 1; }
+
+html {
+  font-size: 16px;
+  background: #000; }
+
+body {
+  font: 62.5% Verdana, Helvetica, serif;
+  /* 1em = 10px - to make math easier later - default-browser-font-size */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0;
+  text-align: left;
+  position: relative;
+  background-color: #111; }
+
+nav ul {
+  list-style: none; }
+
+nav ul li {
+  padding: 0 0 5px; }
+
+/* layout styles */
+hgroup {
+  display: inline; }
+
+/* .mainHeader */
+header.mainHeader {
+  height: 5em;
+  width: 100%;
+  position: fixed;
+  top: 0; }
+
+.mainHeader .wrapper {
+  height: 5em;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #88c9f9;
+  border: 1px solid #ddd;
+  opacity: 0.75; }
+
+.mainHeader .textWrapper {
+  height: 5em;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  color: #FFF; }
+
+.tColor_wht {
+  color: #FFF; }
+
+.headerNav {
+  float: right;
+  padding: 13px;
+  font-size: 0.75em; }
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer; }
+
+.navlink:hover {
+  color: #88c9f9;
+  text-decoration: underline; }
+
+section.contentBodyWrapper {
+  width: 910px;
+  height: auto;
+  padding: 65px 10px 0 6px;
+  /* big hidden top space */
+  margin: 0 auto; }
+
+section.userColumn {
+  float: left;
+  width: 290px;
+  padding: 0px 0px 0 3px;
+  margin-bottom: 2em; }
+
+section.tweetColumn {
+  float: right;
+  width: 600px;
+  padding: 0 0 10px 0;
+  margin: 0 0 5px 0;
+  background-color: #FFF; }
+
+article.trends {
+  padding: 15px 15px 15px 15px; }
+
+.trends h3 {
+  margin: 0px 0 15px 0; }
+
+/* reusable styles */
+.bigRoundedBorders {
+  border-radius: 10px;
+  border: 2px solid #ffe0d9;
+  background-color: #FFF;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  overflow: hidden; }
+
+/* fonts */
+.lightTextColor {
+  color: #A0A0A0; }
+
+.textLrg {
+  font: 1.2em Verdana, Helvetica, serif; }
+
+.textSm {
+  font: 1em Verdana, Helvetica, serif; }
+
+/* user profile */
+.profileMini header {
+  padding: 57px 0 0 10px; }
+
+.profileTextBlk h3 {
+  margin-top: 43px;
+  padding: 0 0 0 5px;
+  font-weight: bold; }
+
+.lightTxt {
+  color: #A0A0A0; }
+
+/* tweet content */
+.tweet:first-child {
+  border-top: none; }
+
+.tweet {
+  min-height: 50px;
+  padding-left: 10px;
+  border-top: 1px #FFD3A6 solid; }
+
+.tweetUser {
+  font-color: #A0A0A0;
+  font-weight: bold; }
+
+.tweetTextBlk {
+  margin-top: 0;
+  padding: 10px; }
+
+.tweetDate {
+  line-height: 30px; }
+
+#filterHeaderMsgId {
+  float: left;
+  width: 100%;
+  height: 20px;
+  margin: 0 0 0 20px; }
+
+/* images */
+.profileTweet_img {
+  float: left;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  margin: 20px 10px 10px 10px; }
+
+.profileMini_img {
+  float: left;
+  border: 4px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px #ddd;
+  width: 68px;
+  height: 68px;
+  margin-right: 10px; }
+
+.profileLarge_img {
+  border: 3px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #ddd; }
+
+/*# sourceMappingURL=main.css.map */
