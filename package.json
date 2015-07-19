@@ -1,0 +1,24 @@
+{
+  "name": "twittler",
+  "version": "1.0.1",
+  "description": "A front-end replacement for Twitter. (jQuery/HTML playground)",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablobrady/twittler.git"
+  },
+  "keywords": [
+    "jQuery",
+    "HTML5",
+    "playground"
+  ],
+  "author": "Paul Brady",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablobrady/twittler/issues"
+  },
+  "homepage": "https://github.com/pablobrady/twittler#readme"
+}

@@ -1,2 +1,6 @@
-#twittler
-This is a project I completed as a student at [makersquare](http://makersquare.com). 
+# Twittler
+### A front-end replacement for Twitter.
+- A playground for HTML5/CSS and jQuery.
+- Hand-coding (but No Bootstrap!)
+
+
