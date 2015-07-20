@@ -146,9 +146,6 @@ article.trends {
   overflow: hidden; }
 
 /* fonts */
-.lightTextColor {
-  color: #A0A0A0; }
-
 .textLrg {
   font: 1.2em Verdana, Helvetica, serif; }
 
@@ -234,6 +231,7 @@ article.trends {
 
 /* Tweet Post Box */
 .tweetPost {
+  background-color: #eff8ee;
   border-bottom: 1px #FFD3A6 solid; }
 
 .profilePost_img {

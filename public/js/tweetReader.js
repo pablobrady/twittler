@@ -7,17 +7,12 @@
 
 var tweetsPerWindow = 11;
 var tweetCounterOffset = tweetsPerWindow;
+var lastTweetCounterOffset = tweetCounterOffset;
 var INPUT_PROMPT_STR = 'What\'s happening?';
 
 
 // JS to jQuery UTILITY
-var newTweetNotifToggle = function()
-{
-  console.log("newTweetNotifToggle");
-  $("#newTweetNotif").slideToggle();
 
-  return false;
-};
 
 
 // JS UTILITY
@@ -46,10 +41,12 @@ var getFormattedDate = function( d ) {
 };
 
 
+
+
 // VIEW NEW TWEETS
 
 
-// Updated by data_generator.
+// Updated by data_generator ONLY
 var updateViewNewTweetsText = function() {
   if( window.streams.home.length<=tweetsPerWindow ) {
     return;
@@ -77,7 +74,7 @@ var updateViewNewTweetsText = function() {
 
 
 
-// POST A TWEET
+// POST A USER'S TWEET
 var showInputField = function( aUser ) {
   var $tweetPost = $('#tweetPost');
   $tweetPost.html('');
@@ -116,31 +113,41 @@ var showCurrentTweets = function() {
   while(index >= 0){
     var tweet = streams.home[index];
     var $tweet = $('<div class=tweet></div>');
+    if(index > lastTweetCounterOffset) {
+      $tweet = $('<div class="tweet tweetReveal"></div>');
+    }
     $tweet.html( getTweetBlock(tweet.user, enableHashtagLinks(tweet.message), getFormattedDate(tweet.created_at) ) );
     $tweet.appendTo($tweetContent);
     index -= 1;
   }
+
 };
 
 
 // ON READY
 $(document).ready(function(){
 
+  ///// "View XX new Tweets" message
   window.newTweetNotifOpen = function()
   {
     console.log("newTweetNotifOpen");
     $("#newTweetNotif").slideDown();
   };
-
   window.newTweetNotifClose = function()
   {
     console.log("newTweetNotifClose");
-    $("#newTweetNotif").slideUp();
+    $(".tweetReveal").hide();
+    $("#newTweetNotif").slideUp("fast", function() {
+      $(".tweetReveal").fadeIn(1000, function() {
+        lastTweetCounterOffset = streams.home.length - 1;
+      });
+    });
   };
   newTweetNotifClose();
 
 
-  // BUTTON LISTENERS
+
+  //// BUTTON LISTENERS
   $( "#newTweetNotif" ).click(function() {
     tweetCounterOffset = window.streams.home.length;
     showCurrentTweets();
@@ -169,8 +176,7 @@ $(document).ready(function(){
   });
 
 
-  // DISPLAY PAGE ELEMENTS
-  //showInputField("");
+  //// DISPLAY PAGE ELEMENTS
   showCurrentTweets();
 
 });

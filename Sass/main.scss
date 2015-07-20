@@ -205,8 +205,6 @@ article.trends {
 }
 
 /* fonts */
-.lightTextColor { color:#A0A0A0; }
-
 .textLrg { 
   font: 1.2em Verdana, Helvetica, serif;
 }
@@ -307,6 +305,7 @@ article.trends {
 
 /* Tweet Post Box */
 .tweetPost {
+  background-color: lighten($medGreen, 55%);
   border-bottom: 1px $gentleOrange solid;
 }
 
