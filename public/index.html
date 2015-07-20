@@ -8,7 +8,7 @@
   <body>
   <header class="mainHeader">
     <hgroup>
-      <span class="wrapper"></span>
+      <span class="navBox"></span>
       <span class="textWrapper">
         <h1>
           <span class="fa-stack fa-lg tColor_wht">
@@ -25,8 +25,8 @@
     <section class="userColumn group">
 
       <article class="profileMini bigRoundedBorders">
-        <header style="background: url(images/profileMiniBg_pbrady.png) top no-repeat;">
-          <img id="profileMini_imgId" src=images/profileMini_pbrady.png class="profileMini_img"><!-- alt http://placehold.it/68x68/dd00dd -->
+        <header>
+          <img id="profileMini_imgId" src=images/profileMini_pbrady.png class="profileMini_img">
           <span class="profileTextBlk group">
             <h3>Paul Brady</h3>
             <div class="textSm">@curiousitude</div>
@@ -35,7 +35,7 @@
       </article>
 
       <article class="trends bigRoundedBorders group">
-        <h3>Trends</h3>
+        <h2>Trends</h2>
         <nav>
           <ul>
             <li><a title="Sorry, not implemmented yet.">A Trending Item of Interest #1</a></li>
@@ -50,11 +50,17 @@
     </section>
 
     <section class="tweetColumn bigRoundedBorders group">
-      <!-- div class="filterHeader group">
-        <h3 id="filterHeaderMsgId" style="display:block;">Filtered results:</h3>
-      </div -->
-
       <div>
+
+        <div id="tweetPost">
+          <img id="profileMini_imgId" src=images/profileMini_pbrady.png class="profileMini_img">
+          <span class="tweetTextBlk tweetTxt group">
+            <input type="text" name="tweetInput"><br>
+          </span>
+        </div>
+
+        <div id="newTweetNotif"></div>
+
         <div id="tweetContent"></div>
       </div>
 

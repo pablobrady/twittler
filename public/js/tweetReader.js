@@ -5,10 +5,23 @@
  * Listens for newly generated tweet data, and displays it.
  */
 
- var ttimer = null;
+var ttimer = null;
+var tweetsPerWindow = 11;
+var tweetCounterOffset = tweetsPerWindow;
 
+
+
+// BUTTON LISTENERS
+$( "#newTweetNotif" ).click(function() {
+  tweetCounterOffset = window.streams.home.length;
+  viewNewTweets();
+});
+
+
+
+// UTILITY
 var getTweetBlock = function( userName, tweetText, tweetTime) {
-  var tweetHTMLBlock = '<img src=http://placehold.it/40x40/FFB5A5 class=profileTweet_img>' +
+  var tweetHTMLBlock = '<img src=http://placehold.it/70x70/008000 class=profileTweet_img>' +
                          '<span class="tweetTextBlk tweetTxt group">' + 
                            '<span class="tweetUser"><a onclick="showUserFilteredTweets(\'' + userName + '\');">@' + userName + '</a></span>&nbsp;&#183&nbsp;<span class="lightTxt tweetDate">' + tweetTime + '</span><br>' + 
                            tweetText + '<br><br></span>';
@@ -31,6 +44,41 @@ var getFormattedDate = function( d ) {
   return d.toLocaleTimeString() + " - " + d.toLocaleDateString();
 };
 
+
+// VIEW NEW TWEETS
+var viewNewTweets = function() {
+  console.log("viewNewTweets...");
+  document.getElementById('newTweetNotif').style.display = "none";
+  showCurrentTweets();
+}
+
+// Updated by data_generator.
+var updateViewNewTweetsText = function() {
+  if( window.streams.home.length<=tweetsPerWindow ) {
+    return;
+  }
+
+  var total = window.streams.home.length - tweetCounterOffset;
+
+  if( total===0 ) {
+    document.getElementById('newTweetNotif').style.display = "none";
+  } else if( total>1 ) {
+    document.getElementById('newTweetNotif').innerHTML = "View " + total + " new Tweets";
+    document.getElementById('newTweetNotif').style.display = "block";
+  } else if( total===1 ) {
+    document.getElementById('newTweetNotif').innerHTML = "View 1 new Tweet";
+    document.getElementById('newTweetNotif').style.display = "block";
+  }
+
+}
+
+
+// POST A TWEET
+
+
+
+
+// TWEET LOG
 var showUserFilteredTweets = function( aUser ) {
   var $tweetContent = $('#tweetContent');
   $tweetContent.html('');
@@ -49,7 +97,7 @@ var showUserFilteredTweets = function( aUser ) {
 };
 
 var showCurrentTweets = function() {
-  $("#filterHeaderMsgId").text("");
+  // $("#filterHeaderMsgId").text("");
 
   var $tweetContent = $('#tweetContent');
   $tweetContent.html('');
@@ -65,12 +113,13 @@ var showCurrentTweets = function() {
   clearTimeout(ttimer);
 };
 
-var timedTweetChecker = function(){
-  showCurrentTweets();
-  ttimer = setTimeout(timedTweetChecker, Math.random() * 3000);
-};
+// var timedTweetChecker = function(){
+//   showCurrentTweets();
+//   ttimer = setTimeout(timedTweetChecker, Math.random() * 3000);
+// };
 
 
+// ON READY
 $(document).ready(function(){
 
   $("#homeButton").on("click", function() {
@@ -81,7 +130,7 @@ $(document).ready(function(){
     showCurrentTweets();
   });
 
-  timedTweetChecker();
+  viewNewTweets();
 
 });
 

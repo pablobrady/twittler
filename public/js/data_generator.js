@@ -5,9 +5,6 @@
  * You can safely leave this file untouched, and confine your changes to index.html.
  */
 
-var visitor = "PABLO";
-
-
 
 // set up data structures
 window.streams = {};
@@ -24,6 +21,8 @@ var addTweet = function(newTweet){
   var username = newTweet.user;
   streams.users[username].push(newTweet);
   streams.home.push(newTweet);
+
+  updateViewNewTweetsText();
 };
 
 // utility function
@@ -58,7 +57,7 @@ for(var i = 0; i < 10; i++){
 
 var scheduleNextTweet = function(){
   generateRandomTweet();
-  setTimeout(scheduleNextTweet, Math.random() * 3000);
+  setTimeout(scheduleNextTweet, Math.random() * 5000);
 };
 scheduleNextTweet();
 

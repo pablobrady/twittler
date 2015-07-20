@@ -1,20 +1,6 @@
-/*color guide:
-111 Black Bg
-88c9f9 Light Blue
+.tColor_wht {
+  color: #FFF; }
 
-FFD3A6 Gentle Orange 
-FFDF41 Gentle Yellow
-41A0FF Medium Blue
-
-FF6041 Bright Orange
-FFECDA Off White
-FFF0A5 Gentle Yellow
-A0A0A0 Medium Gray
-
-FFD3A6 Light Peach 
-FFB5A5 MedLight Peach
-
-*/
 /*limited reset*/
 html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, figure, canvas, video, th, td, tr {
   margin: 0;
@@ -34,8 +20,13 @@ address, article, aside, canvas, details, figcaption, figure, footer, header, hg
 
 h1 {
   font-size: 2.0em;
-  font-weight: lighter;
-  color: #F00; }
+  font-weight: lighter; }
+
+h2 {
+  font-family: 'Helvetica Neue', cursive;
+  font-size: 2.0em;
+  font-weight: normal;
+  text-decoration: none; }
 
 h3 {
   font-size: 1.5em;
@@ -53,6 +44,7 @@ h3 {
 .group {
   zoom: 1; }
 
+/* page settings */
 html {
   font-size: 16px;
   background: #000; }
@@ -83,25 +75,21 @@ header.mainHeader {
   width: 100%;
   position: fixed;
   top: 0; }
-
-.mainHeader .wrapper {
-  height: 5em;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  background-color: #88c9f9;
-  border: 1px solid #ddd;
-  opacity: 0.75; }
-
-.mainHeader .textWrapper {
-  height: 5em;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  color: #FFF; }
-
-.tColor_wht {
-  color: #FFF; }
+  header.mainHeader .navBox {
+    height: 5em;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #88c9f9;
+    border: 1px solid #ddd;
+    opacity: 0.75; }
+  header.mainHeader .textWrapper {
+    height: 5em;
+    width: 100%;
+    position: fixed;
+    top: 2px;
+    left: 2px;
+    color: #FFF; }
 
 .headerNav {
   float: right;
@@ -109,7 +97,7 @@ header.mainHeader {
   font-size: 0.75em; }
 
 .navLink {
-  color: #fff;
+  color: #FFF;
   text-decoration: none;
   cursor: pointer; }
 
@@ -117,8 +105,9 @@ header.mainHeader {
   color: #88c9f9;
   text-decoration: underline; }
 
+/* Main Page Setup */
 section.contentBodyWrapper {
-  width: 910px;
+  width: 1110px;
   height: auto;
   padding: 65px 10px 0 6px;
   /* big hidden top space */
@@ -126,22 +115,26 @@ section.contentBodyWrapper {
 
 section.userColumn {
   float: left;
-  width: 290px;
+  width: 390px;
   padding: 0px 0px 0 3px;
   margin-bottom: 2em; }
 
 section.tweetColumn {
   float: right;
-  width: 600px;
+  width: 700px;
   padding: 0 0 10px 0;
   margin: 0 0 5px 0;
   background-color: #FFF; }
 
 article.trends {
-  padding: 15px 15px 15px 15px; }
+  padding: 10px 15px 15px 15px; }
 
-.trends h3 {
-  margin: 0px 0 15px 0; }
+.trends h2 {
+  margin: 0 0 10px 0; }
+
+.trends li {
+  margin: 0 0 5px 0;
+  font-size: 1.2em; }
 
 /* reusable styles */
 .bigRoundedBorders {
@@ -164,7 +157,8 @@ article.trends {
 
 /* user profile */
 .profileMini header {
-  padding: 57px 0 0 10px; }
+  padding: 57px 0 0 10px;
+  background: url(../images/profileMiniBg_pbrady.png) top no-repeat; }
 
 .profileTextBlk h3 {
   margin-top: 43px;
@@ -191,6 +185,9 @@ article.trends {
   margin-top: 0;
   padding: 10px; }
 
+.tweetTxt {
+  font-size: 1.8em; }
+
 .tweetDate {
   line-height: 30px; }
 
@@ -204,22 +201,36 @@ article.trends {
 .profileTweet_img {
   float: left;
   border-radius: 5px;
-  width: 40px;
-  height: 40px;
-  margin: 20px 10px 10px 10px; }
+  width: 70px;
+  height: 70px;
+  margin: 20px 20px 0px 10px; }
 
 .profileMini_img {
   float: left;
-  border: 4px solid #fff;
+  border: 4px solid #FFF;
   border-radius: 10px;
   box-shadow: 0px 2px 5px #ddd;
-  width: 68px;
-  height: 68px;
+  width: 70px;
+  height: 70px;
   margin-right: 10px; }
 
 .profileLarge_img {
-  border: 3px solid #fff;
+  border: 3px solid #FFF;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #ddd; }
+
+/* Tweets */
+#newTweetNotif {
+  height: 20px;
+  padding: 10px 0 12px 0;
+  color: #279df4;
+  background-color: #e9f5fe;
+  font-family: 'Helvetica Neue', cursive;
+  font-size: 1.9em;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */
