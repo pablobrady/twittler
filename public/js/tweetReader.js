@@ -10,15 +10,17 @@ var tweetCounterOffset = tweetsPerWindow;
 
 
 
-// BUTTON LISTENERS
-$( "#newTweetNotif" ).click(function() {
-  tweetCounterOffset = window.streams.home.length;
-  viewNewTweets();
-});
+// JS to jQuery UTILITY
+var newTweetNotifToggle = function()
+{
+  console.log("newTweetNotifToggle");
+  $("#newTweetNotif").slideToggle();
+
+  return false;
+};
 
 
-
-// UTILITY
+// JS UTILITY
 var getTweetBlock = function( userName, tweetText, tweetTime) {
   var tweetHTMLBlock = '<img src=http://placehold.it/70x70/008000 class=profileTweet_img>' +
                          '<span class="tweetTextBlk tweetTxt group">' + 
@@ -45,11 +47,7 @@ var getFormattedDate = function( d ) {
 
 
 // VIEW NEW TWEETS
-var viewNewTweets = function() {
-  console.log("viewNewTweets...");
-  document.getElementById('newTweetNotif').style.display = "none";
-  showCurrentTweets();
-}
+
 
 // Updated by data_generator.
 var updateViewNewTweetsText = function() {
@@ -60,16 +58,23 @@ var updateViewNewTweetsText = function() {
   var total = window.streams.home.length - tweetCounterOffset;
 
   if( total===0 ) {
-    document.getElementById('newTweetNotif').style.display = "none";
+    // document.getElementById('newTweetNotif').style.display = "none";
+    newTweetNotifClose();
+
   } else if( total>1 ) {
     document.getElementById('newTweetNotif').innerHTML = "View " + total + " new Tweets";
-    document.getElementById('newTweetNotif').style.display = "block";
+    // document.getElementById('newTweetNotif').style.display = "block";
+    newTweetNotifOpen();
+
   } else if( total===1 ) {
     document.getElementById('newTweetNotif').innerHTML = "View 1 new Tweet";
-    document.getElementById('newTweetNotif').style.display = "block";
+    // document.getElementById('newTweetNotif').style.display = "block";
+    newTweetNotifOpen();
+
   }
 
 }
+
 
 
 // POST A TWEET
@@ -114,6 +119,27 @@ var showCurrentTweets = function() {
 // ON READY
 $(document).ready(function(){
 
+  window.newTweetNotifOpen = function()
+  {
+    console.log("newTweetNotifOpen");
+    $("#newTweetNotif").slideDown();
+  };
+
+  window.newTweetNotifClose = function()
+  {
+    console.log("newTweetNotifClose");
+    $("#newTweetNotif").slideUp();
+  };
+  newTweetNotifClose();
+
+
+  // BUTTON LISTENERS
+  $( "#newTweetNotif" ).click(function() {
+    tweetCounterOffset = window.streams.home.length;
+    showCurrentTweets();
+    newTweetNotifClose();
+  });
+
   $("#homeButton").on("click", function() {
     showCurrentTweets();
   });
@@ -122,8 +148,7 @@ $(document).ready(function(){
     showCurrentTweets();
   });
 
-  viewNewTweets();
+  showCurrentTweets();
 
 });
-
 
