@@ -7,7 +7,7 @@
 
 var tweetsPerWindow = 11;
 var tweetCounterOffset = tweetsPerWindow;
-
+var INPUT_PROMPT_STR = 'What\'s happening?';
 
 
 // JS to jQuery UTILITY
@@ -157,14 +157,14 @@ $(document).ready(function(){
 
 
   $("#tweetInput").on("click", function() {
-    if($(this).val() === 'What\'s happening?') {
+    if($(this).val() === INPUT_PROMPT_STR) {
       $(this).html('');
     }
   });
 
   $("#tweetInput").on("blur", function() {
     if($(this).val() === '') {
-      $(this).html('What\'s happening?');
+      $(this).html(INPUT_PROMPT_STR);
     }
   });
 

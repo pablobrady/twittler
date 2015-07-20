@@ -59,7 +59,7 @@ for(var i = 0; i < 10; i++){
 var scheduleNextTweet = function(){
   generateRandomTweet();
   if( dataTimeout ) { window.clearTimeout(dataTimeout); }
-  dataTimeout = setTimeout(scheduleNextTweet, Math.random() * 7000);
+  dataTimeout = setTimeout(scheduleNextTweet, Math.random() * 10000);
 };
 scheduleNextTweet();
 
