@@ -5,7 +5,6 @@
  * Listens for newly generated tweet data, and displays it.
  */
 
-var ttimer = null;
 var tweetsPerWindow = 11;
 var tweetCounterOffset = tweetsPerWindow;
 
@@ -93,7 +92,6 @@ var showUserFilteredTweets = function( aUser ) {
     }
     index -= 1;
   }
-  clearTimeout(ttimer);
 };
 
 var showCurrentTweets = function() {
@@ -110,13 +108,7 @@ var showCurrentTweets = function() {
     $tweet.appendTo($tweetContent);
     index -= 1;
   }
-  clearTimeout(ttimer);
 };
-
-// var timedTweetChecker = function(){
-//   showCurrentTweets();
-//   ttimer = setTimeout(timedTweetChecker, Math.random() * 3000);
-// };
 
 
 // ON READY
