@@ -15,7 +15,7 @@
             <i class="fa fa-square-o fa-stack-2x"></i>
             <i class="fa fa-twitter fa-stack-1x"></i>
           </span>
-          <a class="navLink tColor_wht" onclick="showHomeView()">Twittler</a>
+          <a class="navLink tColor_wht" onclick="<!-- showHomeView() -->">Twittler</a>
           <span class="headerNav tColor_wht"><i class="fa fa-home"></i> <a id="homeButton" class="navLink">Home</a>&nbsp;&nbsp;
         </h1>
       </span>
@@ -52,10 +52,10 @@
     <section class="tweetColumn bigRoundedBorders group">
       <div>
 
-        <div id="tweetPost">
-          <img id="profileMini_imgId" src=images/profileMini_pbrady.png class="profileMini_img">
+        <div class="tweetPost">
+          <img src=images/profileMini_pbrady.png class="profilePost_img">
           <span class="tweetTextBlk tweetTxt group">
-            <input type="text" name="tweetInput"><br>
+            <textarea id="tweetInput">What's happening?</textarea>
           </span>
         </div>
 

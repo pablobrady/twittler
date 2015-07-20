@@ -170,7 +170,7 @@ article.trends {
 
 /* tweet content */
 .tweet:first-child {
-  border-top: none; }
+  border-top: 1px #FFD3A6 solid; }
 
 .tweet {
   min-height: 50px;
@@ -231,5 +231,26 @@ article.trends {
   text-decoration: none;
   text-align: center;
   cursor: pointer; }
+
+/* Tweet Post Box */
+.tweetPost {
+  border-bottom: 1px #FFD3A6 solid; }
+
+.profilePost_img {
+  float: left;
+  border-radius: 5px;
+  width: 70px;
+  height: 70px;
+  margin: 20px 20px 0px 20px; }
+
+#tweetInput {
+  border: 1px solid #AAA;
+  width: 70%;
+  height: 40px;
+  font-family: 'Helvetica Neue', cursive;
+  font-size: 1.1em;
+  font-weight: normal;
+  text-decoration: none;
+  color: #4a913c; }
 
 /*# sourceMappingURL=main.css.map */

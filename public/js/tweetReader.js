@@ -78,6 +78,15 @@ var updateViewNewTweetsText = function() {
 
 
 // POST A TWEET
+var showInputField = function( aUser ) {
+  var $tweetPost = $('#tweetPost');
+  $tweetPost.html('');
+
+  var $tweet = $('<div class=tweetPost></div>');
+  $tweet.html( getTweetBlock(tweet.aUser, '', '') );
+  $tweet.appendTo($tweetPost);
+
+};
 
 
 
@@ -100,8 +109,6 @@ var showUserFilteredTweets = function( aUser ) {
 };
 
 var showCurrentTweets = function() {
-  // $("#filterHeaderMsgId").text("");
-
   var $tweetContent = $('#tweetContent');
   $tweetContent.html('');
 
@@ -148,6 +155,22 @@ $(document).ready(function(){
     showCurrentTweets();
   });
 
+
+  $("#tweetInput").on("click", function() {
+    if($(this).val() === 'What\'s happening?') {
+      $(this).html('');
+    }
+  });
+
+  $("#tweetInput").on("blur", function() {
+    if($(this).val() === '') {
+      $(this).html('What\'s happening?');
+    }
+  });
+
+
+  // DISPLAY PAGE ELEMENTS
+  //showInputField("");
   showCurrentTweets();
 
 });

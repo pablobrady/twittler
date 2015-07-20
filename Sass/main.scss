@@ -1,11 +1,13 @@
 @charset "UTF-8";
 
 $white: #FFF;
+$medGrey: #AAA;
 $black: #000;
 $stdLinkColor: #3ea1ed;
 $stdLinkHoverColor: #000080;
 $lightBlue: #88c9f9;
 $gentleOrange: #FFD3A6;
+$medGreen: #4a913c;
 
 .tColor_wht {
   color:$white;
@@ -229,7 +231,7 @@ article.trends {
 
 /* tweet content */
 .tweet:first-child {
-border-top:  none;
+  border-top: 1px $gentleOrange solid;
 }
 
 .tweet {
@@ -303,6 +305,29 @@ border-top:  none;
   cursor: pointer;
 }
 
+/* Tweet Post Box */
+.tweetPost {
+  border-bottom: 1px $gentleOrange solid;
+}
+
+.profilePost_img {
+  float:left;
+  border-radius:5px;
+  width:70px; 
+  height:70px;
+  margin:20px 20px 0px 20px;
+}
+
+#tweetInput {
+  border: 1px solid $medGrey;
+  width:70%;
+  height:40px;
+  font-family: 'Helvetica Neue', cursive;
+  font-size: 1.1em;
+  font-weight: normal;
+  text-decoration: none;
+  color: $medGreen;
+}
 
 
 
